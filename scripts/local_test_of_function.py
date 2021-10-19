@@ -58,9 +58,9 @@ print(df)
 Register function so that you can see it in the UI
 '''
 
-db.register_functions([MultiplyByFactor_aguptav2])
+db.register_functions([MultiplyByFactor_aguptav1])
 
-#db.unregister_functions(['MultiplyByFactor_aguptav2'])
+#db.unregister_functions(['MultiplyByFactor_aguptav1'])
 
 
 
