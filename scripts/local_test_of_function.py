@@ -1,10 +1,16 @@
+import datetime as dt
 import json
 import logging
-
+import pandas as pd
+import numpy as np
+from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, func
+from iotfunctions.base import BaseTransformer
+from iotfunctions.metadata import EntityType
 from iotfunctions.db import Database
+from iotfunctions import ui
 from iotfunctions.enginelog import EngineLogging
-
 EngineLogging.configure_console_logging(logging.DEBUG)
+#EngineLogging.configure_console_logging(logging.DEBUG)
 
 '''
 You can test functions locally before registering them on the server to
@@ -15,7 +21,7 @@ Place your credentials in a separate file that you don't check into the repo.
 
 '''
 
-with open('credentials_as_dev.json', encoding='utf-8') as F:
+with open('../credentials_as.json', encoding='utf-8') as F:
     credentials = json.loads(F.read())
 db_schema = None
 db = Database(credentials=credentials)
@@ -35,14 +41,19 @@ By default test results are written to a file named df_test_entity_for_<function
 This file will be written to the working directory.
 
 '''
+import custom
+from custom.multiplybyfactor_aguptav1 import MultiplyByFactor_aguptav1
 
-from custom.functions import HelloWorld
-
-fn = HelloWorld(name='AS_Tester', greeting_col='greeting')
-fn.execute_local_test(db=db, db_schema=db_schema)
+fn = MultiplyByFactor_aguptav1(
+    input_items = ['speed', 'travel_time'],
+    factor = '2',
+    output_items = ['adjusted_speed', 'adjusted_travel_time']
+              )
+df = fn.execute_local_test(db=db, db_schema=db_schema, generate_days=1,to_csv=True)
+print(df)
 
 '''
 Register function so that you can see it in the UI
 '''
 
-db.register_functions([HelloWorld])
+db.register_functions([MultiplyByFactor_aguptav1])
