@@ -41,5 +41,5 @@ class MultiplyByFactor_aguptav2(BaseTransformer):
                       )
 
         outputs = [
-            ui.UIFunctionOutSingle(name='distance_ot', datatype=float, description='Output distance')]
+            ui.UIFunctionOutSingle(name='output_items', datatype=float, description='Output distance')]
         return (inputs,outputs)
