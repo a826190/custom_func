@@ -42,6 +42,7 @@ This file will be written to the working directory.
 
 '''
 import custom
+from custom.multiplybyfactor_aguptav1 import MultiplyByFactor_aguptav1
 from custom.multiplybyfactor_aguptav2 import MultiplyByFactor_aguptav2
 
 fn = MultiplyByFactor_aguptav2(

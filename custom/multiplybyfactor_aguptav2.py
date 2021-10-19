@@ -39,9 +39,7 @@ class MultiplyByFactor_aguptav2(BaseTransformer):
                 output_item = 'distance',
                 is_output_datatype_derived = True)
                       )
-        inputs.append(ui.UISingle(
-                name = 'factor',
-                datatype=float)
-                      )
-        outputs = []
+
+        outputs = [
+            ui.UIFunctionOutSingle(name='distance_ot', datatype=float, description='Output distance')]
         return (inputs,outputs)
