@@ -42,12 +42,13 @@ This file will be written to the working directory.
 
 '''
 import custom
-from custom.multiplybyfactor_aguptav1 import MultiplyByFactor_aguptav1
+from custom.multiplybyfactor_aguptav1 import MultiplyByFactor_aguptav2
 
-fn = MultiplyByFactor_aguptav1(
+fn = MultiplyByFactor_aguptav2(
     input_items = ['speed', 'travel_time'],
     factor = '2',
-    output_items = ['adjusted_speed', 'adjusted_travel_time']
+    #output_items = ['adjusted_speed', 'adjusted_travel_time']
+    output_items = ['distance']
               )
 df = fn.execute_local_test(db=db, db_schema=db_schema, generate_days=1,to_csv=True)
 print(df)
@@ -56,4 +57,9 @@ print(df)
 Register function so that you can see it in the UI
 '''
 
-db.register_functions([MultiplyByFactor_aguptav1])
+db.register_functions([MultiplyByFactor_aguptav2])
+
+#db.unregister_functions(['MultiplyByFactor_aguptav1'])
+
+
+

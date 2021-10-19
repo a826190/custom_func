@@ -2,6 +2,7 @@ import logging
 
 from iotfunctions import ui
 from iotfunctions.base import BaseTransformer
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 
@@ -11,7 +12,7 @@ logger = logging.getLogger(__name__)
 PACKAGE_URL = 'git+https://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@github.com/a826190/custom_func.git@starter_package'
 
 
-class MultiplyByFactor_aguptav1(BaseTransformer):
+class MultiplyByFactor_aguptav2(BaseTransformer):
 
     def __init__(self, input_items, factor, output_items):
 
@@ -21,8 +22,14 @@ class MultiplyByFactor_aguptav1(BaseTransformer):
         super().__init__()
     def execute(self, df):
         df = df.copy()
-        for i,input_item in enumerate(self.input_items):
-            df[self.output_items[i]] = df[input_item] * self.factor
+        #df_temp=pd.DataFrame()
+        if 'speed' in self.input_items and 'travel_time' in self.input_items :
+            df['distance']=df['speed']*df['travel_time']
+        else:
+            for i,input_item in enumerate(self.input_items):
+                df[self.output_items[i]] = df[input_item] * self.factor
+                print(i,'-----',input_item)
+
         return df
 
     @classmethod
