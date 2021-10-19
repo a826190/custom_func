@@ -36,8 +36,8 @@ class MultiplyByFactor_aguptav2(BaseTransformer):
                 name = 'input_items',
                 datatype=float,
                 description = "Data items adjust",
-                output_item = 'distance',
-                is_output_datatype_derived = True)
+
+                )
                       )
 
         outputs = [
