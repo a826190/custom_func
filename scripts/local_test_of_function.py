@@ -45,11 +45,11 @@ import custom
 from custom.multiplybyfactor_aguptav1 import MultiplyByFactor_aguptav1
 from custom.multiplybyfactor_aguptav2 import MultiplyByFactor_aguptav2
 
-fn = MultiplyByFactor_aguptav2(
+fn = MultiplyByFactor_aguptav1(
     input_items = ['speed', 'travel_time'],
     factor = '2',
-    #output_items = ['adjusted_speed', 'adjusted_travel_time']
-    output_items = ['distance']
+    output_items = ['adjusted_speed', 'adjusted_travel_time']
+    #output_items = ['distance']
               )
 df = fn.execute_local_test(db=db, db_schema=db_schema, generate_days=1,to_csv=True)
 print(df)
