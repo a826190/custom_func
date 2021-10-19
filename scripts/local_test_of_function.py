@@ -42,7 +42,7 @@ This file will be written to the working directory.
 
 '''
 import custom
-from custom.multiplybyfactor_aguptav1 import MultiplyByFactor_aguptav2
+from custom.multiplybyfactor_aguptav2 import MultiplyByFactor_aguptav2
 
 fn = MultiplyByFactor_aguptav2(
     input_items = ['speed', 'travel_time'],
@@ -59,7 +59,7 @@ Register function so that you can see it in the UI
 
 db.register_functions([MultiplyByFactor_aguptav2])
 
-#db.unregister_functions(['MultiplyByFactor_aguptav1'])
+#db.unregister_functions(['MultiplyByFactor_aguptav2'])
 
 
 
